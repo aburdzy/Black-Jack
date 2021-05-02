@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Roboto Slab', serif;
+}
+
+.overlay {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+}
+
+.overlay.visible {
+    display: flex;
+}
+
+.overlay.invisible {
+    display: none;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color:rgba(255, 255, 255, 0.8);;
+    padding: 50px;
+    border-radius: 8px;
+    
+}
+
+.reset-game {
+    padding: 14px 20px;
+    font-family: 'Roboto Slab', serif;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px; 
+    background-color:rgb(44, 113, 44);
+    border: none;
+    color: white;
+}
+
+.notification {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 20px;
+    z-index: 1;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    padding-left: 40px;
+    background-color:rgba(44, 113, 44, 0.76);
+    border-radius: 20px;
+    position: relative;
+}
+
+.field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-field,
+.croupier-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.player-score,
+.croupier-score {
+    color: white;
+    font-size: 40px;
+    margin-bottom: 20px;
+    width: 80%;
+    text-align: center;
+}
+
+.cards-field {
+    display: flex;
+    align-items:center;
+    width: 400px;
+    height: 300px;
+    position: relative;
+}
+
+.move {
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+    height: 130px;
+}
+
+.hit-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.move .card.hit {
+    transform: rotate(-10deg) scale(0.45) ;
+    transform-origin: top;
+}
+
+.move .card.stand {
+    transform-origin: top;
+    transform: rotate(10deg) scale(0.45) ;
+    margin-left: -50px;
+}
+
+.move .card.hit,
+.move .card.stand {
+    cursor: pointer;
+    position: unset;
+}
+
+.move .card.hit,
+.move .card.stand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 46px;
+    font-weight: 800;
+}
+
+.move .card.stand > div {
+    color: red;
+}
+
+.card {
+    width: 170px;
+    height: 230px;
+    border: 3px solid black;
+    border-radius: 20px;
+    background-color: white;
+    position: absolute;
+    margin-left: 10px;
+}
+
+.heading {
+    display: flex;
+    width: 150px;
+    margin-top: 10px;
+    margin-left: 10px;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.name {
+    display: flex;
+    font-size: 50px;
+    font-weight: 800;
+}
+
+.color {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.heading .color {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.25);
+    margin-top: 0;
+}
+
+.element1.spades {
+    width: 46px;
+    height: 46px;
+    background-color: black;
+    transform: rotate(45deg);
+    position: relative;
+}
+
+.element2.spades,
+.element3.spades {
+    width: 46px;
+    height: 46px;
+    background-color: black;
+    border-radius: 100%;
+    position: absolute;
+}
+
+.element2.spades {
+    top: 23px;
+}
+
+.element3.spades {
+    left: 23px;
+}
+
+.element4.spades {
+    position: absolute;
+    width: 10px;
+    height: 70px;
+    background-color: black;
+    transform: rotate(-45deg);
+    left: 30px;
+}
+
+
+.name.heart {
+    color: red;
+}
+
+
+.element1.heart{
+    width: 46px;
+    height: 46px;
+    background-color:red;
+    transform: rotate(45deg);
+    position: relative;
+}
+
+.element2.heart,
+.element3.heart {
+    width: 46px;
+    height: 46px;
+    background-color: red;
+    border-radius: 100%;
+    position: absolute;
+}
+
+.element2.heart {
+    right: 23px;
+}
+
+.element3.heart {
+    bottom: 23px;
+}
+
+
+.heading.club .color {
+    margin-right: 20px;
+}
+
+.element1.club {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10px;
+    height: 66px;
+    background-color: black;
+    position: relative;
+}
+
+.element2.club,
+.element3.club,
+.element4.club {
+    width: 46px;
+    height: 46px;
+    background-color: black;
+    border-radius: 100%;
+    position: absolute;
+}
+
+.element2.club {
+    top: -23px;
+}
+
+.element3.club {
+    top: 10px;
+    left: -40px;
+}
+
+.element4.club {
+    top: 10px;
+    right: -40px;
+}   
+
+
+.name.diamond {
+    color: red;
+}
+
+.element1.diamond {
+    width: 56px;
+    height: 56px;
+    background-color: red;
+    transform: rotate(45deg);
+}
+
+.visibility {
+    width: 170px;
+    height: 230px;
+    border-radius: 20px;
+    margin-top: -10px;
+}
+
+.visibility.invisible {
+    display: none;
+}
+
+.card.invisible {
+    background-color: #6514b79e;
+}
+
+
+
+  
+  
+
+
